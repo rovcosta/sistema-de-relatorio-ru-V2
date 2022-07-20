@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title%} Atualizar Registro de Eventos {% endblock %}
+
+
+{% block content %}
+<div class="container w-75 mb-3">      
+  <div class="row mx-auto">
+      <div class="col-md-2">
+      </div>
+      <h4 class="font-weight-bold text-center mt-4 center" >ATUALIZAR REGISTRO DE EVENTO </h4>
+      
+
+    <form class="mb-4 shadow-lg" method="post" style="background-color:#F2F2F2; border-radius: 0.5%;border-width: 0.01cm; border-style: solid;border-color: #afffb8; padding: 3%;" >
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-6">
+                {{form_table_event.titulo_evento|as_crispy_field}}
+            </div>
+            <div class="col-md-6">
+              {{form_table_event.instituicao_ofertante|as_crispy_field}}
+          </div>
+            <div class="col-md-4">
+                {{ form_table_event.tipo_evento|as_crispy_field}}
+            </div>
+            <div class="col-md-4">
+                {{ form_table_event.data_inicial|as_crispy_field}}
+            </div>
+            
+            <div class="col-md-4">
+                {{ form_table_event.data_final|as_crispy_field}}
+            </div>
+            <div class="col-md-12">
+              {{form_table_event.descricao_evento|as_crispy_field}}
+          </div>
+     
+          <div class="container">
+              <div class="row md-4">
+                  <div class="col text-center mt-3">
+                      <button type="submit" class="btn btn-success btn-md text-center">Atualizar</button>
+                  </div>
+              </div>
+            </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
